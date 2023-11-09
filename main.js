@@ -17,7 +17,7 @@ async function spin(){
     spinwheel.style.rotate=`0deg`;
     bod=document.getElementById("bod");
     spinwheel=document.getElementById("spin");
-    let choice=[22.5,112.5,202.5,292.5];
+    let choice=[-22.5,-112.5,-202.5,-292.5];
     index=Math.floor(Math.random()*4);
     choice=choice[index];
     arc=360/8;
@@ -25,11 +25,11 @@ async function spin(){
     console.log(landingPosition)
     let initTime=new Date();
     initTime=initTime.getTime();
-    thetaF=360*Math.ceil(Math.random()*15)+landingPosition-10;
+    thetaF=-360*Math.ceil(Math.random()*15)-landingPosition;
     omega=0;
-    alpha=0.0005;
+    alpha=-0.0005;
     theta=0;
-    while(theta<=thetaF){
+    while(theta>=thetaF){
         currTime=new Date();
         currTime=currTime.getTime();
         t=currTime-initTime;
