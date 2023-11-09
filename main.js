@@ -37,4 +37,8 @@ async function spin(){
         spinwheel.style.rotate=`${theta}deg`;
         await sleep(10);
     }
+    if(theta>thetaF || theta<thetaF){
+        theta=thetaF;
+        spinwheel.style.rotate=`${theta}deg`;
+    }
 }
