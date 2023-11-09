@@ -22,16 +22,14 @@ async function spin(){
     choice=choice[index];
     arc=360/8;
     landingPosition=(choice*arc)-arc/2;
+    console.log(landingPosition)
     let initTime=new Date();
     initTime=initTime.getTime();
-    thetaF=360*Math.ceil(Math.random()*15)+landingPosition-5;
+    thetaF=360*Math.ceil(Math.random()*15)+landingPosition-15;
     omega=0;
     alpha=0.0005;
     theta=0;
     while(theta<thetaF){
-        if(theta==0.5*thetaF){
-            alpha=-0.0005;
-        }
         currTime=new Date();
         currTime=currTime.getTime();
         t=currTime-initTime;
@@ -39,10 +37,4 @@ async function spin(){
         spinwheel.style.rotate=`${theta}deg`;
         await sleep(10);
     }
-    let confetti=new Confetti("bod");
-    confetti.setCount(75);
-    confetti.setSize(1);
-    confetti.setPower(25);
-    confetti.setFade(false);
-    confetti.destroyTarget(true); 
 }
